@@ -4,7 +4,7 @@ from datetime import datetime
 name = input("Enter your name: ")
 print ("\n" + "=D  " * 30)
 print (f" Welcome {name}!")
-print (":D  " * 30)
+print ("\n" + ":D  " * 30)
 
 # FOR DATETIME MODULE
 time_now = datetime.now()
