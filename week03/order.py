@@ -1,6 +1,6 @@
 from menu_item import MenuItem
 
-tax_rate = 0.0875
+TAX_RATE = 0.0875
 
 class Order: 
     def __init__(self, customer_name):
@@ -12,7 +12,7 @@ class Order:
     
     def remove_item(self, index):
         if 1 <= index <= len(self.items):
-            self.item.pop(index - 1)
+            self.items.pop(index - 1)
         else:
             print("Invalid item number.")
     
@@ -20,7 +20,7 @@ class Order:
         return sum(item.price for item in self.items)
     
     def tax(self):
-        return self.subtotal() + self.tax()
+        return self.subtotal() * TAX_RATE
     
     def total(self):
         return self.subtotal() + self.tax()
@@ -36,6 +36,6 @@ class Order:
         receipt += f"Subtotal: ${self.subtotal():.2f}\n"
         receipt += f"Tax (8.75%): ${self.tax():.2f}\n"
         receipt += f"Total: ${self.total():.2f}\n"
-        receipt += "\n" + "*" *32 + "\n"
+        receipt += "\n" + "*" *34
 
         return receipt
