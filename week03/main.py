@@ -39,7 +39,7 @@ def choose_drink():
 
 def main():
     print("*" * 47)
-    print('%-15s %-15s %-15s' % ("*", "Starlight Coffee POS"))
+    print('%-15s %-15s %-15s' % ("*", "Starlight Coffee POS", "*"))
     print("*" * 47)
 
     customer_name = input("Enter your name: ")
