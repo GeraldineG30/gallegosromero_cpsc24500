@@ -39,7 +39,7 @@ def choose_drink():
 
 def main():
     print("*" * 47)
-    print('%-15s %-13s %15s' % ("*", "Starlight Coffee POS", "*"))
+    print('%-12s %-15s %13s' % ("*", "Starlight Coffee POS", "*"))
     print("*" * 47)
 
     name = input("Enter your name: ")
@@ -51,11 +51,11 @@ def main():
 
     # Menu options
     while True:
-        print("\nWhat would you like to do?")
-        print("   1. Add anothe drink")
-        print("   2. Remove a drink")
-        print("   3. View order")
-        print("   4. Check out")
+        print("\n** What would you like to do? **")
+        print("1. Add anothe drink")
+        print("2. Remove a drink")
+        print("3. View order")
+        print("4. Check out")
 
         choice = input("Choice: ")
 
