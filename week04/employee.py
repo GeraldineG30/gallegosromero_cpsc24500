@@ -57,5 +57,5 @@ class Employee:
         return regular_pay + overtime_pay
     
     def __str__(self):
-        return f"{self.name} {self.employee_id} ${self.hourly_rate} {self.hours_worked} ${self.calculate_gross_pay():2f}"
+        return "%-15s %-10s %10.2f %10.2f %12.2f" % (self.name, self.employee_id, self.hourly_rate, self.hours_worked, self.calculate_gross_pay())
     
