@@ -48,7 +48,7 @@ class Employee:
         value = float(value)
         if value < 0 or value > 168:
             raise ValueError("Hours can not be negative or greater than 168")
-        self._hourly_worked = value
+        self._hours_worked = value
 
     def calculate_gross_pay(self):
         regular_pay = min(self.hours_worked, 40) * self.hourly_rate
