@@ -24,7 +24,7 @@ def main():
             report.display_payroll_summary()
         elif choice == "3":
             file = input("Enter file name: ")
-            report.generate_report_file()
+            report.generate_report_file(file)
             print("Report succesfully generated")
         elif choice == "4":
             print("Goodbye.")
