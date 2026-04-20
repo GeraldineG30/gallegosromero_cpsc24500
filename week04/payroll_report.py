@@ -11,7 +11,7 @@ class PayrollReport:
             print(emp)
     
     def display_payroll_summary(self):
-        print("--- Payroll Sunnary ---")
+        print("\n--- Payroll Summary ---")
 
         print(f"Total employees: {self._processor.get_employee_count()}")
         print(f"Total payroll: ${self._processor.calculate_total_payroll():.2f}")
@@ -41,4 +41,3 @@ class PayrollReport:
             f.write(f"Total employees: {self._processor.get_employee_count()}\n")
             f.write(f"Total payroll: ${self._processor.calculate_total_payroll():.2f}\n")
             f.write(f"Average pay: ${self._processor.calculate_average_pay():.2f}\n")
-            
