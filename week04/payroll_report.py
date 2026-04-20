@@ -27,17 +27,26 @@ class PayrollReport:
     
     def generate_report_file(self, file):
         with open(file, "w") as f:
+            
             f.write("=" * 65 + "\n")
-            f.write("Employees\n")
+            f.write("%-15s %-10s %10s %10s %12s" % ("Name", "ID", "Rate", "Hours", "Gross Pay\n"))
             f.write("=" * 65 + "\n")
 
             for emp in self._processor.employees:
                 f.write(str(emp) + "\n")
             
             f.write("=" * 65 + "\n")
-            f.write("\nPayroll summary")
+            f.write("Payroll summary\n")
             f.write("=" * 65 + "\n")
 
             f.write(f"Total employees: {self._processor.get_employee_count()}\n")
             f.write(f"Total payroll: ${self._processor.calculate_total_payroll():.2f}\n")
             f.write(f"Average pay: ${self._processor.calculate_average_pay():.2f}\n")
+
+            highest = self._processor.find_highest_paid()
+            lowest = self._processor.find_lowest_paid()
+
+            if highest:
+                f.write(f"Highest paid: {highest.name} (${highest.calculate_gross_pay():.2f})\n")
+            if lowest:
+                f.write(f"Lowest paid: {lowest.name} (${lowest.calculate_gross_pay():.2f})\n")
