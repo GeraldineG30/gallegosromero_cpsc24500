@@ -11,31 +11,31 @@ class Pet:
         self._happiness = 50
         self._energy = 50
 
-        @property
-        def name(self):
-            return self._name
+    @property
+    def name(self):
+        return self._name
         
-        def feed(self):
-            self._hunger = max(0, self._hunger - 10)
-            return f"{self._name} was fed"
+    def feed(self):
+        self._hunger = max(0, self._hunger - 10)
+        return f"{self._name} was fed"
         
-        def play(self):         # This has to prevent values for going below 0, isn't it? ':3
-            self._happiness = max(0, self._happiness + 10)
-            self._energy = max(0, self._energy - 10)
-            return f"{self._name} is playing"
+    def play(self):         # This has to prevent values for going below 0, isn't it? ':3
+        self._happiness = max(0, self._happiness + 10)
+        self._energy = max(0, self._energy - 10)
+        return f"{self._name} is playing"
         
-        def sleep(self):
-            self._energy = max(0, self._energy + 10)
-            return f"{self._name} is sleeping"
+    def sleep(self):
+        self._energy = max(0, self._energy + 10)
+        return f"{self._name} is sleeping"
         
-        def status(self):
-            return (f"{self._name} ({self._species})"
-                    f"Hunger: {self._hunger}, "
-                    f"Happiness: {self._happiness}, "
-                    f"Energy: {self._energy}")
+    def status(self):
+        return (f"{self._name} ({self._species}) "
+                f"Hunger: {self._hunger}, "
+                f"Happiness: {self._happiness}, "
+                f"Energy: {self._energy}")
         
-        def __str__(self):
-            return f"{self._name} the {self._species}"
+    def __str__(self):
+        return f"{self._name} the {self._species}"
         
         
         

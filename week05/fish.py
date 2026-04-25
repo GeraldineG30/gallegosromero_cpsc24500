@@ -11,7 +11,7 @@ class Fish(Pet):
     
     def play(self): # Not sure if a fish can play though...
         self._happiness = max(100, self._happiness + 1)
-        self._energy = max(0, self._energy - 1)
+        self._energy = max(0, self._energy - 55)
         return f"{self._name} is swimming happily"
     
     def sleep(self):
