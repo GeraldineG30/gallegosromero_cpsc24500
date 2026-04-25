@@ -19,7 +19,7 @@ class Pet:
         self._hunger = max(0, self._hunger - 10)
         return f"{self._name} was fed"
         
-    def play(self):         # This has to prevent values for going below 0, isn't it? ':3
+    def play(self):         # This has to prevent values for going below 0
         self._happiness = max(0, self._happiness + 10)
         self._energy = max(0, self._energy - 10)
         return f"{self._name} is playing"
