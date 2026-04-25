@@ -11,7 +11,7 @@ class Dog(Pet):
         return f"{self._name} it's happy to eat"
     
     def play(self):
-        self._happiness = min(100, self._happiness + 10)
+        self._happiness = max(0, self._happiness + 10)
         self._energy = max(0, self._energy - 10)
         return f"{self._name} roll around"
     
