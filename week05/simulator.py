@@ -6,16 +6,16 @@ def adopt_pet(pets):
     print("\n" + "=" * 65 )
     print("%45s" % ("WELCOME TO PET ADOPTION"))
     print("=" * 65 )
-    print("%35s" % ("Animals in adoption: " + "Dog. " + "Cat. " + "Fish."))
+    print("%35s" % ("Animals in adoption: " + "1. Dog  " + "2. Cat  " + "3. Fish "))
     type = input("What animal do you whish to adopt? ")
     name = input("Name your Pet: ")
 
     if type == "Dog" or type == "dog" or type == "DOG":
         breed = input("Enter dog breed: ")
         pets.append(Dog(name, breed))
-    elif type == "Cat":
+    elif type == "Cat"or type == "cat" or type == "CAT":
         pets.append(Cat(name))
-    elif type == "Fish":
+    elif type == "Fish"or type == "fish" or type == "FISH":
         pets.append(Fish(name))
     else:
         print("Invalid entry")
@@ -23,6 +23,7 @@ def adopt_pet(pets):
 def select_pet(pets):
     if not pets:
         print("No pets available")
+        return None
     
     for p, pet in enumerate(pets):
         print(f"\n{p + 1}. {pet}")
@@ -31,7 +32,7 @@ def select_pet(pets):
         choice = int(input("\nChoose your pet: ")) - 1
         return pets[choice]
     except (ValueError, IndexError):
-        print("Invalid selection.")
+        print("Invalid selection")
         return None
 
 def main():
