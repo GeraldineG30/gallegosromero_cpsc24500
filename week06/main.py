@@ -8,6 +8,7 @@ def add_circle(gallery):
         radius = float(input("Enter radius: "))
         shape = Circle(radius)
         gallery.add_shape(shape)
+        print(f"Added: Circle with radius {radius}")
     except ValueError as error:
         print(f"Sorry! There's and error: {error}. Try Again")
 
@@ -17,6 +18,7 @@ def add_rectangle(gallery):
         height = float(input("Enter height: "))
         shape = Rectangle(width, height)
         gallery.add_shape(shape)
+        print(f"Added: Rectangle {width} x {height}")
     except ValueError as error:
         print(f"Sorry! There's and error: {error}. Try Again")
 
@@ -27,6 +29,7 @@ def add_triangle(gallery):
         c = float(input("Enter side c: "))
         shape = Triangle(a, b, c)
         gallery.add_shape(shape)
+        print(f"Added: {shape.describe()}")
     except ValueError as error:
         print(f"Sorry! There's and error: {error}. Try Again")
 
@@ -34,9 +37,9 @@ def main():
     gallery = Gallery("My Shapes")
 
     while True:
-        print("\n" + "*" * 65 )
+        print("\n" + "*" * 55 )
         print("%40s" % ("Shape Menu"))
-        print("*" * 65 + "\n")
+        print("*" * 55 + "\n")
         print("1. Add a Circle")
         print("2. Add a Rectangle")
         print("3. Add a Triangle")
@@ -45,7 +48,7 @@ def main():
         print("6. Show largest shape")
         print("7. Quit")
 
-        choice = input("Choose an option: ")
+        choice = input("\nChoose an option: ")
 
         if choice == "1":
             add_circle(gallery)
@@ -65,6 +68,7 @@ def main():
                 print("Gallery is empty :( Try adding a shape!")
         elif choice == "7":
             print("Bye, Have a great day!")
+            break
         else:
             print("Invalid choice! Try again")
 

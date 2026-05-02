@@ -23,8 +23,10 @@ class Gallery:
         return largest
     
     def display_all(self):
-        print(f"Gallery: {self._name}")
+        print(f"\n Gallery: {self._name}")
+        print("\n" + "-" * 55 )
         for shape in self._shapes:
             print(f"    {shape.describe()}")
             print(f"    Area: {shape.area():.2f}")
-            print(f"    Perimeter: {shape.perimeter():.2f}")
+            print(f"    Perimeter: {shape.perimeter():.2f}\n")
+        print("-" * 55 + "\n")
