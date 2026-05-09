@@ -68,7 +68,7 @@ def main():
 
         another_story = input("\n Generate another story? (yes/no): ")
 
-        if another_story != "yes" or another_story != "YES":
+        if another_story != "yes":
             break
     
     print("\nThank you for using StoryTeller :D")
