@@ -9,7 +9,7 @@ class WordCollection:
         collection = cls()
 
         with open(filepath, "r") as file:
-            for file in file:
+            for line in file:
                 line = line.strip()
 
                 if not line:
