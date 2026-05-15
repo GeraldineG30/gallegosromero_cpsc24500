@@ -21,7 +21,7 @@ def load_catalog(catalog, filename):
 
                 type_specific = fields[4:-1]
 
-                item = ItemFactory.create_item(type, title, author, year, *checked_out)
+                item = ItemFactory.create_item(type, title, author, year, *type_specific)
 
                 if checked_out:
                     item.check_out()
