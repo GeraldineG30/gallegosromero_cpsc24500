@@ -63,7 +63,7 @@ def main():
         
         print(f"\n----- {template.name} Story -----")
 
-        for _ in range(sentences):
+        for i in range(sentences):
             print(template.generate(words))
 
         another_story = input("\n Generate another story? (yes/no): ")
