@@ -44,10 +44,9 @@ class LibraryItem(ABC):
         return self.title.lower() < other.title.lower()
         
     def __str__(self):
-        if self.checked_out :
+        if self.checked_out:
             status = "CHECKED OUT"
-            return status
         else:
             status = "AVAILABLE"
             
-        return(f"{self.get_item_type()}, {self.title},    {self.author},   {self.year}, - {status}")
+        return(f"{self.get_item_type()} {self.title}    {self.author}   {self.year} - {status}")

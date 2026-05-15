@@ -22,4 +22,4 @@ class Book(LibraryItem):
     def __str__(self):
         base = super().__str__()
 
-        return(f"{base} |   ISBN: {self.isbn},   Pages: {self.page_count}")
+        return(f"{base} |   ISBN: {self.isbn}   Pages: {self.page_count}")

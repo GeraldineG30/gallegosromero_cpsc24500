@@ -5,15 +5,15 @@ from magazine import Magazine
 class ItemFactory:
     
     @classmethod
-    def create_item(cls, type, title, author, year, *type_specific):
+    def create_item(cls, type, title, author, year, *type_specific, checked_out=False):
         type =  type.lower()
 
         if type == "book":
-            return Book(title, author, year, type_specific[0], type_specific[1])
+            return Book(title, author, year, type_specific[0], type_specific[1], checked_out)
         elif type == "dvd":
-            return DVD(title, author, year, type_specific[0], type_specific[1]) 
+            return DVD(title, author, year, type_specific[0], type_specific[1], checked_out) 
         elif type == "magazine":
-            return Magazine(title, author, year, type_specific[0], type_specific[1]) 
+            return Magazine(title, author, year, type_specific[0], type_specific[1], checked_out) 
         else:
             raise ValueError("Unknown type")
         

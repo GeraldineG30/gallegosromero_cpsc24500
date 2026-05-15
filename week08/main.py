@@ -11,7 +11,7 @@ def load_catalog(catalog, filename):
             for line in file:
                 fields = line.strip().split("\t")
 
-                type = fields[0]
+                item_type = fields[0]
                 title = fields[1]
                 author = fields[2]
                 year = fields[3]
@@ -21,10 +21,7 @@ def load_catalog(catalog, filename):
 
                 type_specific = fields[4:-1]
 
-                item = ItemFactory.create_item(type, title, author, year, *type_specific)
-
-                if checked_out:
-                    item.check_out()
+                item = ItemFactory.create_item(item_type, title, author, year, *type_specific, checked_out=checked_out)
 
                 catalog.add_item(item)
     except FileNotFoundError:
@@ -36,11 +33,11 @@ def save_catalog(catalog, filename):
         for item in catalog.get_all_items():
 
             if item.get_item_type() == "Book":
-                line = (f"Book\t, {item.title}\t, {item.author}\t, {item.year}\t, {item.isbn}\t, {item.page_count}\t, {str(item.checked_out)}\n")
+                line = (f"Book\t {item.title}\t {item.author}\t {item.year}\t {item.isbn}\t {item.page_count}\t {str(item.checked_out)}\n")
             elif item.get_item_type() == "DVD":
-                line = (f"DVD\t, {item.title}\t, {item.author}\t, {item.year}\t, {item.runtime_minutes}\t, {item.rating}\t, {str(item.checked_out)}\n")
+                line = (f"DVD\t {item.title}\t {item.author}\t {item.year}\t {item.runtime_minutes}\t {item.rating}\t {str(item.checked_out)}\n")
             else:
-                line = (f"Magazine\t, {item.title}\t, {item.author}\t, {item.year}\t, {item.issue_number}\t, {item.month}\t, {str(item.checked_out)}\n")
+                line = (f"Magazine\t {item.title}\t {item.author}\t {item.year}\t {item.issue_number}\t {item.month}\t {str(item.checked_out)}\n")
             
             file.write(line)
 
@@ -75,10 +72,10 @@ def add_item_interactive(catalog, view):
         
         catalog.add_item(item)
         
-        view.display_message(f"Added: {title}\n")
+        view.display_message(f"\nAdded: {title}")
     
     except ValueError as error:
-        view.display_message(f"There was an error! :( {error}\n")
+        view.display_message(f"\nThere was an error! :( {error}")
 
 
 def main():
@@ -86,11 +83,11 @@ def main():
     view = CatalogView()
 
     load_catalog(catalog, DATA_FILE)
-    view.display_message("Catalog loaded")
+    view.display_message("Catalog loaded!")
 
     while True:
         view.display_menu()
-        choice = input("Enter Choice: \n")
+        choice = input("\nEnter Choice: ")
 
         try:
             if choice == "1":
@@ -107,7 +104,7 @@ def main():
                 title = input("\nEnter the exact title to check out: ")
                 found = False
                 for item in catalog.get_all_items():
-                    if item.title.lower() == title.lower():
+                    if item.title.strip().lower() == title.strip().lower():
                         item.check_out()
                         view.display_message(f"Successfully checked out: {title}")
                         found = True
@@ -118,7 +115,7 @@ def main():
                 title = input("\nEnter the exact title to check in: ")
                 found = False
                 for item in catalog.get_all_items():
-                    if item.title.lower() == title.lower():
+                    if item.title.strip().lower() == title.strip().lower():
                         item.check_in()
                         view.display_message(f"Successfully checked in: {title}")
                         found = True

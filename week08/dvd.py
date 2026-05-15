@@ -20,4 +20,5 @@ class DVD(LibraryItem):
         return "DVD"
     
     def __str__(self):
-        return (super().__str__(), f" | Runtime: {self.runtime_minutes} min, Rating: {self.rating}")
+        base = super().__str__()
+        return ( f"{base} | Runtime: {self.runtime_minutes} min, Rating: {self.rating}")

@@ -2,13 +2,13 @@ class CatalogView:
 
     def display_items(self, items):
         
-        for item in items:
-            print(item)
-
         if not items:
             print("No items to display")
             return
         
+        for item in items:
+            print(item)
+            
     def display_message(self, message):
         
         print(message)
