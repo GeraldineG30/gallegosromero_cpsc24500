@@ -8,18 +8,18 @@ class Book(LibraryItem):
         self._isbn = isbn
         self._page_count = int(page_count)
 
-        @property
-        def isbn(self):
-            return self._isbn
+    @property
+    def isbn(self):
+        return self._isbn
         
-        @property
-        def page_count(self):
-            return self._page_count
+    @property
+    def page_count(self):
+        return self._page_count
         
-        def get_item_type(self):
-            return "Book"
+    def get_item_type(self):
+        return "Book"
         
-        def __str__(self):
-            base = super().__str__()
+    def __str__(self):
+        base = super().__str__()
 
-            return(f"{base} |   ISBN: {self.isbn},   Pages: {self.page_count}")
+        return(f"{base} |   ISBN: {self.isbn},   Pages: {self.page_count}")
