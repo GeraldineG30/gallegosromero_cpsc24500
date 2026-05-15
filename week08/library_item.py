@@ -50,4 +50,4 @@ class LibraryItem(ABC):
         else:
             status = "AVAILABLE"
             
-        return(f"{self.get_item_time()}, {self.title},    {self.author},   {self.year}, - {status}")
+        return(f"{self.get_item_type()}, {self.title},    {self.author},   {self.year}, - {status}")
