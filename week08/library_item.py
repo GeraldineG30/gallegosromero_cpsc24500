@@ -8,46 +8,46 @@ class LibraryItem(ABC):
         self._year = int(year)
         self._checked_out = checked_out
 
-        @property
-        def title(self):
-            return self._title
+    @property
+    def title(self):
+        return self._title
         
-        @property
-        def author(self):
-            return self._author
+    @property
+    def author(self):
+        return self._author
         
-        @property
-        def year(self):
-            return self._year
+    @property
+    def year(self):
+        return self._year
         
-        @property
-        def checked_out(self):
-            return self._checked_out
+    @property
+    def checked_out(self):
+        return self._checked_out
         
-        @abstractmethod
-        def get_item_type(self):
-            pass
+    @abstractmethod
+    def get_item_type(self):
+        pass
 
-        def check_out(self):
-            if self._checked_out:
-                raise RuntimeError("Already checked out")
+    def check_out(self):
+        if self._checked_out:
+            raise RuntimeError("Already checked out")
             
-            self._checked_out = True
+        self._checked_out = True
 
-        def check_in(self):
-            if not self._checked_out:
-                raise RuntimeError("Already available")
+    def check_in(self):
+        if not self._checked_out:
+            raise RuntimeError("Already available")
             
-            self._checked_out = False
+        self._checked_out = False
 
-        def __lt__(self, other):
-            return self.title.lower() < other.title.lower()
+    def __lt__(self, other):
+        return self.title.lower() < other.title.lower()
         
-        def __str__(self):
-            if self.checked_out :
-                status = "CHECKED OUT"
-                return status
-            else:
-                status = "AVAILABLE"
+    def __str__(self):
+        if self.checked_out :
+            status = "CHECKED OUT"
+            return status
+        else:
+            status = "AVAILABLE"
             
-            return(f"{self.get_item_time()}, {self.title},    {self.author},   {self.year}, - {status}")
+        return(f"{self.get_item_time()}, {self.title},    {self.author},   {self.year}, - {status}")
